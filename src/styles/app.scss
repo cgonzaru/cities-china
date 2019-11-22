@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+}
+
+.app {
+    border: solid 2px grey;
+    border-radius: 5px;
+}
+
+.app__container {
+    border-top: solid 2px grey;
+    display: flex;
+}
+
+.container__list {
+    border-right: solid 2px grey;
+}
