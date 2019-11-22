@@ -1,4 +1,6 @@
 import React from 'react';
+import mountain from '../images/mountain.png';
+import '../styles/CitiesList.scss';
 import PropTypes from 'prop-types';
 
 const CitiesList = props => {
@@ -11,8 +13,12 @@ const CitiesList = props => {
 				.map((city, index) => {
 					return (
 						<li className="cities-item" key={index}>
-							<p className="city-name">{city.name}</p>
-							<p className="chinese-name">{city.chineseName}</p>
+							<input type="checkbox" className="myCheck"/>
+							<img src={mountain} alt="mountain" className="logo"/>
+							<div className="names">
+								<p className="city-name">{city.name}</p>
+								<p className="chinese-name">{city.chineseName}</p>
+							</div>
 						</li>
 					);
 				})
