@@ -3,11 +3,11 @@ import '../styles/TotItems.scss';
 import PropTypes from 'prop-types';
 
 const TotItems = props => {
-
+	const { selected } = props;
 	return (
 		<div className="totItems">
 			<input type="checkbox" className="checkItems"/>
-			<p className="items">items</p>
+			<p className="items">{selected.length} items</p>
 		</div>
 	);
 

@@ -3311,10 +3311,12 @@ class App extends React.Component {
         "chineseName": "诸暨市"
       }
       ],
-      userInput: ''
+      userInput: '',
+      selected: []
     }
 
     this.getUserInput = this.getUserInput.bind(this);
+    this.getSelected = this.getSelected.bind(this);
   }
 
   getUserInput(event) {
@@ -3322,6 +3324,26 @@ class App extends React.Component {
     this.setState({
       userInput: value
     })
+  }
+
+  getSelected(event) {
+    const selectedValue = event.currentTarget.value;
+    const futureSelected = this.state.cities.find(item => item.id === selectedValue);
+
+    this.setState(prevState => {
+      const newSelected = [...prevState.selected];
+      const result = newSelected.findIndex(item => item.id === selectedValue);
+
+      if (result < 0 ) {
+        newSelected.push(futureSelected);
+      } else {
+        newSelected.splice(result,1);
+      }
+
+      return {
+        selected: newSelected
+      }
+    });
   }
 
   render() {
@@ -3336,11 +3358,13 @@ class App extends React.Component {
               getUserInput={this.getUserInput}
             />
             <TotItems
-
+              selected={this.state.selected}
             />
             <CitiesList
               cities={this.state.cities}
               userInput={this.state.userInput}
+              getSelected={this.getSelected}
+              selected={this.state.selected}
             />
 
           </div>

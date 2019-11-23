@@ -5,15 +5,17 @@ import PropTypes from 'prop-types';
 
 const CitiesList = props => {
 
-	const { cities, userInput } = props;
+	const { cities, userInput, getSelected } = props;
+
 	return (
 		<ul className="cities-list">
 			{cities
 				.filter(city => city.name.toUpperCase().includes(userInput.toUpperCase()))
 				.map((city, index) => {
+					/* console.log(parseInt(index)) */
 					return (
-						<li className="cities-item" key={index}>
-							<input type="checkbox" className="myCheck"/>
+						<li className="cities-item" key={index} >
+							<input type="checkbox" className="myCheck" onClick={getSelected} value={city.id}/>
 							<img src={mountain} alt="mountain" className="logo"/>
 							<div className="names">
 								<p className="city-name">{city.name}</p>
