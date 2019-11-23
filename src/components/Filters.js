@@ -8,9 +8,9 @@ const Filters = props => {
 
 	return (
 		<div className="filters">
-			<input placeholder={placeholderText} type="text" className="userInput" onChange={getUserInput}/>
+			<input placeholder={placeholderText} type="text" className="userInput" onChange={getUserInput} />
 		</div>
-  );
+	);
 
 };
 

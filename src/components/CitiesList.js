@@ -12,7 +12,6 @@ const CitiesList = props => {
 			{cities
 				.filter(city => city.name.toUpperCase().includes(userInput.toUpperCase()))
 				.map((city, index) => {
-					/* console.log(parseInt(index)) */
 					return (
 						<li className="cities-item" key={index} >
 							<input type="checkbox" className="myCheck" onClick={getSelected} value={city.id}/>

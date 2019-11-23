@@ -3334,10 +3334,10 @@ class App extends React.Component {
       const newSelected = [...prevState.selected];
       const result = newSelected.findIndex(item => item.id === selectedValue);
 
-      if (result < 0 ) {
+      if (result < 0) {
         newSelected.push(futureSelected);
       } else {
-        newSelected.splice(result,1);
+        newSelected.splice(result, 1);
       }
 
       return {
@@ -3364,12 +3364,16 @@ class App extends React.Component {
               cities={this.state.cities}
               userInput={this.state.userInput}
               getSelected={this.getSelected}
-              selected={this.state.selected}
             />
 
           </div>
           <div className="container__selected">
-
+            <SelItems 
+              selected={this.state.selected}
+            />
+            <SelList
+              selected={this.state.selected}
+            />
           </div>
         </div>
 
