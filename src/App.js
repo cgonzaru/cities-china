@@ -3311,13 +3311,16 @@ class App extends React.Component {
       }
       ],
       userInput: '',
-      selected: []
+      selected: [],
+      allSelected: false,
+      isChecked: false
     }
 
     this.getUserInput = this.getUserInput.bind(this);
     this.getSelected = this.getSelected.bind(this);
     this.closeSelected = this.closeSelected.bind(this);
     this.clearAllSelected = this.clearAllSelected.bind(this);
+    this.toggleAllSelected = this.toggleAllSelected.bind(this);
   }
 
   getUserInput(event) {
@@ -3342,7 +3345,8 @@ class App extends React.Component {
       }
 
       return {
-        selected: newSelected
+        selected: newSelected,
+        isChecked: true
       }
     });
   }
@@ -3369,6 +3373,14 @@ class App extends React.Component {
     });
   }
 
+  toggleAllSelected() {
+    const currentState = this.state.allSelected;
+
+    this.setState({
+      allSelected: !currentState
+    });
+  }
+
   render() {
     return (
       <div className="app">
@@ -3384,6 +3396,9 @@ class App extends React.Component {
               cities={this.state.cities}
               userInput={this.state.userInput}
               getSelected={this.getSelected}
+              toggleAllSelected={this.toggleAllSelected}
+              allSelected={this.state.allSelected}
+              isChecked={this.state.isChecked}
             />
 
           </div>
