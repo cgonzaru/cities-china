@@ -1,4 +1,5 @@
-    const cities = [
+{
+    "cities" = [
         {
             "id": "hong-kong",
             "name": "Hong Kong",
@@ -3296,4 +3297,4 @@
         }
     ]
 
-
+}

@@ -7,6 +7,7 @@ const SelItems = props => {
 	return (
 		<div className="selItems">
 			<p className="items">{selected.length} items</p>
+			<span className="clear">clear</span>
 		</div>
 	);
 

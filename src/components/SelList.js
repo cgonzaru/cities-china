@@ -1,10 +1,10 @@
 import React from 'react';
 import mountain from '../images/mountain.png';
+import '../styles/SelList.scss';
 import PropTypes from 'prop-types';
 
 const SelList = props => {
-	const { selected } = props;
-	console.log(selected)
+	const { selected, closeSelected } = props;
 	return (
 		<div className="selList">
 			<ul className="cities-list">
@@ -16,6 +16,9 @@ const SelList = props => {
 								<div className="names">
 									<p className="city-name">{city.name}</p>
 									<p className="chinese-name">{city.chineseName}</p>
+								</div>
+								<div className="closed">
+									<button data-id={city.id} className="btn-clear" onClick={closeSelected}>X</button>
 								</div>
 							</li>
 						);

@@ -1,6 +1,6 @@
 import React from 'react';
 import Filters from './components/Filters';
-/* import cities from './services/cities'; */
+//import cities from './services/cities'; 
 import TotItems from './components/TotItems';
 import CitiesList from './components/CitiesList';
 import SelItems from './components/SelItems';
@@ -3317,6 +3317,7 @@ class App extends React.Component {
 
     this.getUserInput = this.getUserInput.bind(this);
     this.getSelected = this.getSelected.bind(this);
+    this.closeSelected = this.closeSelected.bind(this);
   }
 
   getUserInput(event) {
@@ -3343,6 +3344,22 @@ class App extends React.Component {
       return {
         selected: newSelected
       }
+    });
+  }
+
+  closeSelected(event) {
+    const selectedID = event.currentTarget.getAttribute('data-id');
+
+    this.setState(prevState => {
+      const newSelected = [...prevState.selected];
+      const result = newSelected.includes(selectedID);
+
+      newSelected.splice(result, 1);
+
+      return {
+        selected: newSelected
+      }
+
     });
   }
 
@@ -3373,6 +3390,7 @@ class App extends React.Component {
             />
             <SelList
               selected={this.state.selected}
+              closeSelected={this.closeSelected}
             />
           </div>
         </div>
