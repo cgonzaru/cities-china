@@ -3318,6 +3318,7 @@ class App extends React.Component {
     this.getUserInput = this.getUserInput.bind(this);
     this.getSelected = this.getSelected.bind(this);
     this.closeSelected = this.closeSelected.bind(this);
+    this.clearAllSelected = this.clearAllSelected.bind(this);
   }
 
   getUserInput(event) {
@@ -3363,6 +3364,12 @@ class App extends React.Component {
     });
   }
 
+  clearAllSelected() {
+    this.setState({
+      selected: []
+    });
+  }
+
   render() {
     return (
       <div className="app">
@@ -3387,6 +3394,7 @@ class App extends React.Component {
           <div className="container__selected">
             <SelItems 
               selected={this.state.selected}
+              clearAllSelected={this.clearAllSelected}
             />
             <SelList
               selected={this.state.selected}

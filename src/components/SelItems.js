@@ -3,11 +3,11 @@ import '../styles/SelItems.scss'
 import PropTypes from 'prop-types';
 
 const SelItems = props => {
-	const { selected } = props;
+	const { selected, clearAllSelected } = props;
 	return (
 		<div className="selItems">
 			<p className="items">{selected.length} items</p>
-			<span className="clear">clear</span>
+			<button className="clear" onClick={clearAllSelected}>clear</button>
 		</div>
 	);
 
