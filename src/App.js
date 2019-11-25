@@ -1,7 +1,6 @@
 import React from 'react';
 import Filters from './components/Filters';
 //import cities from './services/cities'; 
-import TotItems from './components/TotItems';
 import CitiesList from './components/CitiesList';
 import SelItems from './components/SelItems';
 import SelList from './components/SelList';
@@ -3380,9 +3379,6 @@ class App extends React.Component {
             <Filters
               placeholderText={placeholderText}
               getUserInput={this.getUserInput}
-            />
-            <TotItems
-              selected={this.state.selected}
             />
             <CitiesList
               cities={this.state.cities}
