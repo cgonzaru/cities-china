@@ -9,9 +9,9 @@ const SelList = props => {
 		<div className="selList">
 			<ul className="cities-list">
 				{selected
-					.map((city, index) => {
+					.map(city => {
 						return (
-							<li className="cities-item" key={index} >
+							<li className="cities-item" key={city.id} >
 								<img src={mountain} alt="mountain" className="logo" />
 								<div className="names">
 									<p className="city-name">{city.name}</p>

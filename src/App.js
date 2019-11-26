@@ -24,6 +24,7 @@ class App extends React.Component {
     this.getSelected = this.getSelected.bind(this);
     this.closeSelected = this.closeSelected.bind(this);
     this.clearAllSelected = this.clearAllSelected.bind(this);
+    this.getAllSelected = this.getAllSelected.bind(this);
   }
 
   getUserInput(event) {
@@ -44,17 +45,38 @@ class App extends React.Component {
       if (result < 0) {
         newSelected.push(futureSelected);
         return {
-          selected: newSelected
+          selected: newSelected,
         }
       } else {
         newSelected.splice(result, 1);
         return {
           selected: newSelected,
-          allSelected: false
+          allSelected: false,
         }
       }
-      
+
     });
+  }
+
+  getAllSelected() {
+    if (this.state.allSelected === true) {
+      this.setState({
+        selected: [],
+        allSelected: false
+      });
+    } else {
+      const allCities = [];
+      for (let item of this.state.cities.filter((item => {
+        return item.name.toUpperCase().includes(this.state.userInput.toUpperCase())
+      }))) {
+        allCities.push(item);
+      }
+      this.setState({
+        selected: allCities,
+        allSelected: true
+      });
+
+    }
   }
 
   closeSelected(event) {
@@ -75,7 +97,8 @@ class App extends React.Component {
 
   clearAllSelected() {
     this.setState({
-      selected: []
+      selected: [],
+      allSelected: false
     });
   }
 
@@ -95,11 +118,13 @@ class App extends React.Component {
               userInput={this.state.userInput}
               getSelected={this.getSelected}
               allSelected={this.state.allSelected}
+              isChecked={this.state.isChecked}
+              getAllSelected={this.getAllSelected}
             />
 
           </div>
           <div className="container__selected">
-            <SelItems 
+            <SelItems
               selected={this.state.selected}
               clearAllSelected={this.clearAllSelected}
             />

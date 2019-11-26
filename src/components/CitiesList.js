@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const CitiesList = props => {
 
-	const { cities, userInput, getSelected, allSelected } = props;
+	const { cities, userInput, getSelected, allSelected, isChecked, getAllSelected } = props;
 	
 	const filteredCities = cities
 		.filter(city => {
@@ -15,14 +15,14 @@ const CitiesList = props => {
 	return (
 		<div className="containerList">
 			<div className="totItems">
-				<input type="checkbox" className="checkItems" checked={allSelected === true}/>
+				<input type="checkbox" className="checkItems" onClick={getAllSelected} checked={allSelected === true}/>
 				<p className="items">{filteredCities.length} items</p>
 			</div>
 			<ul className="cities-list">
 				{filteredCities
-					.map((city, index) => {
+					.map(city => {
 						return (
-							<li className="cities-item" key={index} >
+							<li className="cities-item" key={city.id} >
 								<input type="checkbox" className="myCheck" onClick={getSelected} value={city.id} />
 								<img src={mountain} alt="mountain" className="logo" />
 								<div className="names">
