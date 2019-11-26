@@ -1,6 +1,6 @@
 import React from 'react';
 import Filters from './components/Filters';
-import cities from './services/cities.json'; 
+import cities from './services/cities.json';
 import CitiesList from './components/CitiesList';
 import SelItems from './components/SelItems';
 import SelList from './components/SelList';
@@ -16,7 +16,8 @@ class App extends React.Component {
     this.state = {
       cities: cities.cities,
       userInput: '',
-      selected: []
+      selected: [],
+      allSelected: false
     }
 
     this.getUserInput = this.getUserInput.bind(this);
@@ -42,13 +43,17 @@ class App extends React.Component {
 
       if (result < 0) {
         newSelected.push(futureSelected);
+        return {
+          selected: newSelected
+        }
       } else {
         newSelected.splice(result, 1);
+        return {
+          selected: newSelected,
+          allSelected: false
+        }
       }
-
-      return {
-        selected: newSelected
-      }
+      
     });
   }
 
@@ -89,6 +94,7 @@ class App extends React.Component {
               cities={this.state.cities}
               userInput={this.state.userInput}
               getSelected={this.getSelected}
+              allSelected={this.state.allSelected}
             />
 
           </div>

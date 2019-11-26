@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const CitiesList = props => {
 
-	const { cities, userInput, getSelected } = props;
+	const { cities, userInput, getSelected, allSelected } = props;
 	
 	const filteredCities = cities
 		.filter(city => {
@@ -15,7 +15,7 @@ const CitiesList = props => {
 	return (
 		<div className="containerList">
 			<div className="totItems">
-				<input type="checkbox" className="checkItems" />
+				<input type="checkbox" className="checkItems" checked={allSelected === true}/>
 				<p className="items">{filteredCities.length} items</p>
 			</div>
 			<ul className="cities-list">
