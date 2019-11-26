@@ -82,17 +82,27 @@ class App extends React.Component {
   closeSelected(event) {
     const selectedID = event.currentTarget.getAttribute('data-id');
 
-    this.setState(prevState => {
-      const newSelected = [...prevState.selected];
-      const result = newSelected.includes(selectedID);
-
-      newSelected.splice(result, 1);
-
-      return {
+    if(this.state.allSelected === true) {
+      const index = this.state.selected.findIndex(item => 
+        item.id === selectedID
+      );
+      const newSelected = [...this.state.selected];
+      newSelected.splice(index, 1);
+      this.setState({
+        selected: newSelected,
+        allSelected: false
+      });
+    } else {
+      const index = this.state.selected.findIndex(item => 
+        item.id === selectedID
+        );
+      const newSelected = [...this.state.selected];
+      newSelected.splice(index, 1);
+      this.setState({
         selected: newSelected
-      }
+      });
+    }
 
-    });
   }
 
   clearAllSelected() {
@@ -118,7 +128,7 @@ class App extends React.Component {
               userInput={this.state.userInput}
               getSelected={this.getSelected}
               allSelected={this.state.allSelected}
-              isChecked={this.state.isChecked}
+              selected={this.state.selected}
               getAllSelected={this.getAllSelected}
             />
 
