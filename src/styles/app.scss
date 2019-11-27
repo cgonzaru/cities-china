@@ -3,15 +3,29 @@ body {
 }
 
 .app {
-    border: solid 2px grey;
+    margin: 50px;
+    border: solid 2px lightgray;
     border-radius: 5px;
 }
 
+.app__title {
+    margin: 10px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
 .app__container {
-    border-top: solid 2px grey;
+    border-top: solid 2px lightgray;
     display: flex;
+    justify-content: space-between;
 }
 
 .container__list {
-    border-right: solid 2px grey;
+    border-right: solid 2px lightgray;
+    width: 50%;
+}
+
+.container__selected {
+    width: 50%;
+
 }

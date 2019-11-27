@@ -6,7 +6,7 @@ const SelItems = props => {
 	const { selected, clearAllSelected } = props;
 	return (
 		<div className="selItems">
-			<p className="items">{selected.length} items</p>
+			<p className="selected-items">{selected.length} items</p>
 			<button className="clear" onClick={clearAllSelected}>clear</button>
 		</div>
 	);

@@ -8,6 +8,7 @@ const Filters = props => {
 
 	return (
 		<div className="filters">
+			<i className="fas fa-search form-control"></i>
 			<input placeholder={placeholderText} type="text" className="userInput" onChange={getUserInput} />
 		</div>
 	);

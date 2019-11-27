@@ -1,3 +1,16 @@
 .filters {
-    margin: 10px;
+    margin: 9px;
+}
+
+.userInput {
+    border: none;
+    border-bottom: 2px solid #c4c4c4;
+    width: 90%;
+    padding-left: 25px;
+}
+
+.form-control {
+    position: absolute;
+    pointer-events: none;
+    color: #c4c4c4;
 }

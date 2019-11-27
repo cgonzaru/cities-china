@@ -117,7 +117,7 @@ class App extends React.Component {
 
     return (
       <div className="app">
-        <p className="app__title">Cities of China</p>
+        <h1 className="app__title">Cities of China</h1>
 
         <div className="app__container">
           <div className="container__list">
