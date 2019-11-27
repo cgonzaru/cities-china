@@ -24,6 +24,7 @@ class App extends React.Component {
     this.closeSelected = this.closeSelected.bind(this);
     this.clearAllSelected = this.clearAllSelected.bind(this);
     this.getAllSelected = this.getAllSelected.bind(this);
+    this.clearKey = this.clearKey.bind(this);
   }
 
   getUserInput(event) {
@@ -111,8 +112,17 @@ class App extends React.Component {
     });
   }
 
+  clearKey(event) {
+    const codigo = event.which || event.keyCode;
+    if(codigo === 8) {
+      this.setState({
+        allSelected: false
+      });
+    }
+  }
+
   render() {
-    const { getUserInput, getSelected, getAllSelected, clearAllSelected, closeSelected } = this;
+    const { getUserInput, getSelected, getAllSelected, clearAllSelected, closeSelected, clearKey } = this;
     const { cities, userInput, allSelected, selected } = this.state;
 
     return (
@@ -124,6 +134,7 @@ class App extends React.Component {
             <Filters
               placeholderText={placeholderText}
               getUserInput={getUserInput}
+              clearKey={clearKey}
             />
             <CitiesList
               cities={cities}
