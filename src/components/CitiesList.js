@@ -1,5 +1,5 @@
 import React from 'react';
-import mountain from '../images/mountain.png';
+import mountains from '../images/mountains.png';
 import '../styles/CitiesList.scss';
 import PropTypes from 'prop-types';
 
@@ -22,9 +22,9 @@ const CitiesList = props => {
 				{filteredCities
 					.map(city => {
 						return (
-							<li className="cities-item" key={city.id} >
+							<li className="cities-item cities-hover" key={city.id} >
 								<input type="checkbox" className="myCheck" onChange={getSelected} value={city.id} checked={selected.filter(item => (item.name === city.name)).length === 1} />
-								<img src={mountain} alt="mountain" className="logo" />
+								<img src={mountains} alt="mountains" className="logo" />
 								<div className="names">
 									<p className="city-name">{city.name}</p>
 									<p className="chinese-name">{city.chineseName}</p>
