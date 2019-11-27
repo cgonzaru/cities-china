@@ -13,7 +13,9 @@ const SelItems = props => {
 
 };
 
-/* SelItems.propTypes = {
+SelItems.propTypes = {
+	selected: PropTypes.arrayOf(PropTypes.object).isRequired,
+	clearAllSelected: PropTypes.func.isRequired
 };
- */
+
 export default SelItems;

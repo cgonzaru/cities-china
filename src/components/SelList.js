@@ -30,7 +30,9 @@ const SelList = props => {
 
 };
 
-/* SelList.propTypes = {
+SelList.propTypes = {
+	selected: PropTypes.arrayOf(PropTypes.object).isRequired,
+	closeSelected: PropTypes.func.isRequired
 };
- */
+
 export default SelList;

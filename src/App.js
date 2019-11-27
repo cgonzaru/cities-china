@@ -4,7 +4,6 @@ import cities from './services/cities.json';
 import CitiesList from './components/CitiesList';
 import SelItems from './components/SelItems';
 import SelList from './components/SelList';
-
 import './styles/app.scss';
 
 const placeholderText = 'Search by name';
@@ -113,6 +112,9 @@ class App extends React.Component {
   }
 
   render() {
+    const { getUserInput, getSelected, getAllSelected, clearAllSelected, closeSelected } = this;
+    const { cities, userInput, allSelected, selected } = this.state;
+
     return (
       <div className="app">
         <p className="app__title">Cities of China</p>
@@ -121,26 +123,26 @@ class App extends React.Component {
           <div className="container__list">
             <Filters
               placeholderText={placeholderText}
-              getUserInput={this.getUserInput}
+              getUserInput={getUserInput}
             />
             <CitiesList
-              cities={this.state.cities}
-              userInput={this.state.userInput}
-              getSelected={this.getSelected}
-              allSelected={this.state.allSelected}
-              selected={this.state.selected}
-              getAllSelected={this.getAllSelected}
+              cities={cities}
+              userInput={userInput}
+              getSelected={getSelected}
+              allSelected={allSelected}
+              selected={selected}
+              getAllSelected={getAllSelected}
             />
 
           </div>
           <div className="container__selected">
             <SelItems
-              selected={this.state.selected}
-              clearAllSelected={this.clearAllSelected}
+              selected={selected}
+              clearAllSelected={clearAllSelected}
             />
             <SelList
-              selected={this.state.selected}
-              closeSelected={this.closeSelected}
+              selected={selected}
+              closeSelected={closeSelected}
             />
           </div>
         </div>
